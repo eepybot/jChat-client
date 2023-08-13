@@ -28,13 +28,7 @@ function escapeHtml(message) {
 }
 
 function TwitchAPI(endpoint) {
-    return $.ajax({
-        beforeSend: function(request) {
-            request.setRequestHeader('Authorization', 'Basic ' + btoa('jChat:' + APIToken));
-        },
-        dataType: 'json',
-        url: 'https://jchat.dellapikm.in/twitch/api/?endpoint=' + encodeURIComponent(endpoint)
-    });
+    return $.ajax('https://jchat.dellapikm.in/twitch/api' + endpoint);
 }
 
 Chat = {
